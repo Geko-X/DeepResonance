@@ -100,15 +100,29 @@ public class ConfigMachines {
         public static int rfMaximum = 100000;
 
         @Configurable(category = category, minValue = 1, maxValue = 100000000, comment = "The maximum amount of liquified crystal this machine can hold (this is not RCL!)")
-        public static int crystalLiquidMaximum = 10000;
+        public static int crystalLiquidMaximum = 20000;
 
-        @Configurable(category = category, minValue = 1, maxValue = 10000000, comment = "The amount of liquified crystal one crystal will yield (this is not RCL!)")
-        public static int crystalLiquidPerCrystal = 2000;
+        @Configurable(category = category, minValue = 1, maxValue = 10000000, comment = "The minimum amount of liquified crystal one crystal will yield (this is not RCL!). This value is for a 0% strength crystal")
+        public static int minCrystalLiquidPerCrystal = 2000;
+
+        @Configurable(category = category, minValue = 1, maxValue = 10000000, comment = "The maximum amount of liquified crystal one crystal will yield (this is not RCL!). This value is for a 100% strength crystal")
+        public static int maxCrystalLiquidPerCrystal = 10000;
 
         @Configurable(category = category, minValue = 1, maxValue = 10000000, comment = "The amount of RCL we improve with one catalyst item")
         public static int rclPerCatalyst = 500;
 
         @Configurable(category = category, minValue = 1, maxValue = 10000000, comment = "The amount of crystal liquid we consume per catalyst item")
         public static int crystalLiquidPerCatalyst = 50;
+    }
+
+    public static class Power {
+        public static final String category = "Power";
+
+        @Configurable(category = category, minValue = 1, maxValue = 2000000000, comment = "The maximum kilo-RF (per 1000, so 1000 = 1milion RF) that a crystal with 100% power can hold")
+        public static int maximumKiloRF = 1000000;
+
+        @Configurable(category = category, minValue = 0, maxValue = 20000, comment = "The maximum RF/tick that a crystal with 100% efficiency can give")
+        public static int maximumRFPerTick = 20000;
+
     }
 }
